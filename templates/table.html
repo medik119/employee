@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron text-center" style="margin-bottom:0; height:50px">
+    <h1>Таблица сотрудников</h1>
+</div>
+<table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Middle name</th>
+        <th>Position</th>
+        <th>Pay</th>
+        <th>Date of admission</th>
+      </tr>
+    </thead>
+    {% for employee in employees  %}
+    <tbody>
+        <tr>
+          <td>{{ employee.first_name }}</td>
+          <td>{{ employee.last_name }}</td>
+          <td>{{ employee.middle_name }}</td>
+          <td>{{ employee.position }}</td>
+          <td>{{ employee.pay }}</td>
+          <td>{{ employee.employment_date }}</td>
+        </tr>
+    </tbody>    
+    {% endfor %}
+</table>
+  
+{% endblock content %}
