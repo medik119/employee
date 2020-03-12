@@ -1,8 +1,6 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
-from random import choice
-
-
+from django.contrib.auth.models import AbstractUser
 
 class Employee(MPTTModel):
     positions = (
