@@ -4,6 +4,17 @@ from django.template import loader
 from .models import Employee
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.contrib.auth.views import LoginView,LogoutView
+from django.views.generic.edit import UpdateView
+from .forms import EmployForm
+from django.urls import reverse_lazy
+
+
+class ChangeView(UpdateView):
+    model = Employee
+    form_class = EmployForm
+    success_url = reverse_lazy('main')
+    template_name = 'change.html'
+
 
 
 class SignLoginView(LoginView):
@@ -13,10 +24,6 @@ class OutLogoutView(LogoutView):
     next_page = 'main'
 
     
-
-
-
-
 
 def main(request):
     contact_list = Employee.objects.all()

@@ -18,7 +18,7 @@
     {% for employee in employees  %}
     <tbody>
         <tr>
-          <td>{{ employee.first_name }}</td>
+          <td><a href="{% url 'change' employee.pk %}">{{ employee.first_name }}</a></td>
           <td>{{ employee.last_name }}</td>
           <td>{{ employee.middle_name }}</td>
           <td>{{ employee.position }}</td>
